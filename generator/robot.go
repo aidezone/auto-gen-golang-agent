@@ -62,6 +62,7 @@ func (s *Robot) Do(talk *RobotTalk) *RobotTalk {
 
 
 func (s *Robot) Run() {
+	emptyStr := "{empty}"
 	for {
 		talk := <- s.chatMessage
 
@@ -71,6 +72,10 @@ func (s *Robot) Run() {
 		answer, err := s.aiPlatform.Call(chatRequest)
 		if err != nil {
 			logger.Errorf("Robot[%v][%v]: call platform error [%v]", s.actor, s.name, err)
+		}
+		if answer == nil {
+			logger.Errorf("Robot[%v][%v]: call platform is no answer", s.actor, s.name)
+			answer = &emptyStr
 		}
 		logger.Infof("Robot[%v][%v]: I answer to [%v][%v] '%v'", s.actor, s.name, talk.Robot.actor, talk.Robot.name, *answer)
 		s.answerMap[talk.TransId] <- &RobotTalk{

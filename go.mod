@@ -5,6 +5,7 @@ go 1.20
 require (
 	github.com/baidubce/bce-qianfan-sdk/go/qianfan v0.0.9
 	github.com/google/uuid v1.4.0
+	github.com/hanyuancheung/gpt-go v0.1.0
 	github.com/lestrrat-go/file-rotatelogs v2.4.0+incompatible
 	github.com/stretchr/testify v1.8.4
 	go.uber.org/zap v1.21.0

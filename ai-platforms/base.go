@@ -18,6 +18,8 @@ func NewAIPlatform(platform defines.PlatformName) AIPlatform {
 		return NewOllama()
 	case defines.Openai:
 		return NewOpenai()
+	case defines.Deepseek:
+		return NewDeepseek()
 	default:
 		return nil
 	}

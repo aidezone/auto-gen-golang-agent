@@ -10,7 +10,8 @@ func main() {
     // 初始化日志
     logger.InitLogger("", true, false)
 
-    playbook.KTVGenerate()
+    // playbook.KTVGenerate()
+    playbook.KTVDeepseekGenerate()
 
 }
 
